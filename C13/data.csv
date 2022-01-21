@@ -1,0 +1,193 @@
+city,year,values
+Cologne,year1,79.547
+Cologne,year2,72
+Cologne,year3,68
+Cologne,year4,54
+Cologne,year5,50.547
+Cologne,year6,21.325
+Cologne,year7,49
+Cologne,year8,51
+Cologne,year9,40
+Cologne,year10,39.5859574
+Cologne,year11,41
+Cologne,year12,41
+Frankfurt,year1,50
+Frankfurt,year2,50.325
+Frankfurt,year3,38
+Frankfurt,year4,34
+Frankfurt,year5,89
+Frankfurt,year6,78.5859574
+Frankfurt,year7,38
+Frankfurt,year8,21
+Frankfurt,year9,24
+Frankfurt,year10,25
+Frankfurt,year11,24
+Frankfurt,year12,26
+Munich,year1,25
+Munich,year2,26
+Munich,year3,25
+Munich,year4,45
+Munich,year5,56
+Munich,year6,88.5859574
+Munich,year7,78
+Munich,year8,71.5859574
+Munich,year9,60.325
+Munich,year10,44
+Munich,year11,49
+Munich,year12,50
+Berlin,year1,66
+Berlin,year2,34
+Berlin,year3,28
+Berlin,year4,63.325
+Berlin,year5,110
+Berlin,year6,130
+Berlin,year7,140
+Berlin,year8,150
+Berlin,year9,344
+Berlin,year10,301
+Berlin,year11,290.5859574
+Berlin,year12,311
+Zurich,year1,67
+Zurich,year2,69
+Zurich,year3,62
+Zurich,year4,84.5859574
+Zurich,year5,-5
+Zurich,year6,97
+Zurich,year7,34
+Zurich,year8,102
+Zurich,year9,98.325
+Zurich,year10,102
+Zurich,year11,107
+Zurich,year12,107.5465
+Basel,year1,88
+Basel,year2,78
+Basel,year3,66.5465
+Basel,year4,50
+Basel,year5,41
+Basel,year6,41.325
+Basel,year7,50
+Basel,year8,66
+Basel,year9,69
+Basel,year10,79.5859574
+Basel,year11,82
+Basel,year12,86
+Lausanne,year1,98.5465
+Lausanne,year2,87
+Lausanne,year3,78
+Lausanne,year4,83
+Lausanne,year5,133.5859574
+Lausanne,year6,66
+Lausanne,year7,69
+Lausanne,year8,68
+Lausanne,year9,66
+Lausanne,year10,62.5465
+Lausanne,year11,63
+Lausanne,year12,68
+St. Gallen,year1,6
+St. Gallen,year2,4
+St. Gallen,year3,12.325
+St. Gallen,year4,15
+St. Gallen,year5,36.5465
+St. Gallen,year6,18
+St. Gallen,year7,10
+St. Gallen,year8,8
+St. Gallen,year9,12
+St. Gallen,year10,11
+St. Gallen,year11,23.5465
+St. Gallen,year12,19.5465
+Vienna,year1,90
+Vienna,year2,97
+Vienna,year3,99.5465
+Vienna,year4,34.5465
+Vienna,year5,88
+Vienna,year6,90
+Vienna,year7,88.5859574
+Vienna,year8,71
+Vienna,year9,50
+Vienna,year10,44
+Vienna,year11,47
+Vienna,year12,49
+Salzburg,year1,-7.325
+Salzburg,year2,-5
+Salzburg,year3,25
+Salzburg,year4,27
+Salzburg,year5,56
+Salzburg,year6,-5
+Salzburg,year7,19.5465
+Salzburg,year8,12
+Salzburg,year9,14.325
+Salzburg,year10,17
+Salzburg,year11,18
+Salzburg,year12,21.5465
+Linz,year1,112
+Linz,year2,110
+Linz,year3,134
+Linz,year4,113.5465
+Linz,year5,45.325
+Linz,year6,123
+Linz,year7,110
+Linz,year8,100.5465
+Linz,year9,80.5859574
+Linz,year10,89
+Linz,year11,92
+Linz,year12,97
+11 more Locations,year1,45
+11 more Locations,year2,50
+11 more Locations,year3,55.5465
+11 more Locations,year4,53
+11 more Locations,year5,79.5465
+11 more Locations,year6,55
+11 more Locations,year7,57
+11 more Locations,year8,50
+11 more Locations,year9,54.325
+11 more Locations,year10,54
+11 more Locations,year11,56
+11 more Locations,year12,61
+Paris,year1,78.5465
+Paris,year2,70
+Paris,year3,98.5465
+Paris,year4,79
+Paris,year5,72
+Paris,year6,75.5465
+Paris,year7,59
+Paris,year8,75
+Paris,year9,70.5465
+Paris,year10,81
+Paris,year11,85
+Paris,year12,88
+Lyon,year1,23
+Lyon,year2,30
+Lyon,year3,30.5465
+Lyon,year4,39
+Lyon,year5,43
+Lyon,year6,55
+Lyon,year7,80
+Lyon,year8,86
+Lyon,year9,122.5465
+Lyon,year10,89
+Lyon,year11,96
+Lyon,year12,96
+Bordeaux,year1,68
+Bordeaux,year2,62
+Bordeaux,year3,68
+Bordeaux,year4,84
+Bordeaux,year5,62.5465
+Bordeaux,year6,71
+Bordeaux,year7,51
+Bordeaux,year8,68.5465
+Bordeaux,year9,68
+Bordeaux,year10,66
+Bordeaux,year11,69
+Bordeaux,year12,67
+Ø 25 locations,year1,59
+Ø 25 locations,year2,55
+Ø 25 locations,year3,57
+Ø 25 locations,year4,59
+Ø 25 locations,year5,64
+Ø 25 locations,year6,72
+Ø 25 locations,year7,82
+Ø 25 locations,year8,72.5465
+Ø 25 locations,year9,76
+Ø 25 locations,year10,74
+Ø 25 locations,year11,79
+Ø 25 locations,year12,79.5465

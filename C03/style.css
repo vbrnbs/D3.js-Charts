@@ -1,0 +1,87 @@
+/* :root {
+	--x-shift: 0px;
+} */
+
+.lastYear {
+	/* transform: translate(var(--x-shift), 0); */
+	
+}
+
+#headerText{
+	padding-left: 10px;
+	font-size: 15px;
+}
+
+.negative{
+	alignment-baseline: hanging;
+	transform: translateY(6px);
+}
+
+.positive{
+	alignment-baseline: baseline;
+	transform: translateY(-6px);
+}
+
+.negativeRel{
+	alignment-baseline: hanging;
+	transform: translateY(12px);
+}
+
+.positiveRel{
+	alignment-baseline: baseline;
+	transform: translateY(-12px);
+}
+
+div {
+	margin: 0;
+	padding: 0;
+}
+
+svg {
+	margin-left: 5%;
+
+}
+
+text {
+	font-size: 1.5vh;
+	stroke-width:  0.001px;
+	stroke: white;
+	color: black;
+	text-anchor: middle;
+	font-weight: 400;
+}
+
+.tick {
+	color: grey;
+}
+
+.x_axis{
+	fill:  grey;
+	transform: translate(5px, 0);
+}
+
+.rect:hover { opacity: 0.8; }
+
+
+/**************** DELTA-ABS ******************/ 
+
+.diff_axis {
+	stroke: lightgrey;
+	stroke-width: 6;
+}
+
+
+/*************** TOOLTIP ********************/
+
+.tippy-tooltip.custom-theme {
+  background-color: rgb(250,250,250);
+  color: black;
+  border-radius: 3px;
+  line-height: 0.5;
+  padding: 0;
+}
+
+.tippy-tooltip.custom-theme .tippy-arrow{
+	transform: translateY(1px);
+}
+

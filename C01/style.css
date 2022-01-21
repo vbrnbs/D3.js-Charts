@@ -1,0 +1,59 @@
+body {
+	position: fixed;
+	margin: 0px;
+	padding: 0px;
+	font-family: Helvetica, sans-serif;
+	overflow: hidden;
+}
+
+text {
+	font-size: 1.5vh;
+	stroke-width:  0.001px;
+	font-weight: 400;
+}
+
+#headerText{
+	padding-left: 10px;
+	font-size: 15px;
+}
+
+.bar-text {
+	text-anchor: middle;
+	alignment-baseline: middle;
+	stroke-width: 0.001px;
+	fill: #ffffff;
+}
+
+.diffLine {
+	stroke:  grey;
+	stroke-width:  0.5px;
+}
+
+.yAxis {
+	alignment-baseline: middle;
+	text-anchor: end;
+	fill:  black;
+}
+
+.tick {
+	text-anchor: middle;
+}
+
+rect:hover {
+	opacity: 0.5;
+}
+
+
+/*************** TOOLTIP ********************/
+
+.tippy-tooltip.custom-theme {
+  background-color: rgb(250,250,250);
+  color: black;
+  border-radius: 3px;
+  line-height: 0.5;
+  padding: 0;
+}
+
+.tippy-tooltip.custom-theme .tippy-arrow{
+	transform: translateY(1px);
+}

@@ -1,0 +1,109 @@
+/* :root {
+	--x-shift: 0px;
+} */
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+.lastYear, .thisYear {
+  /* transform: translate(var(--x-shift), 0); */
+  stroke: black;
+}
+
+.triangle {
+  cursor: default;
+  stroke: #d5d5d5;
+  stroke-width: 1px;
+  font-size: 1em;
+  -webkit-transform: translate(-0.3rem, 0.5rem);
+          transform: translate(-0.3rem, 0.5rem);
+}
+
+#line-path {
+  stroke: #137eca;
+  stroke-width: 2px;
+  stroke-opacity: 1.0;
+  fill-opacity: 0.0;
+}
+
+#headerText {
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+.negative {
+  alignment-baseline: hanging;
+  -webkit-transform: translateY(6px);
+          transform: translateY(6px);
+}
+
+.positive {
+  alignment-baseline: baseline;
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
+}
+
+.negativeRel {
+  alignment-baseline: hanging;
+  -webkit-transform: translateY(12px);
+          transform: translateY(12px);
+}
+
+.positiveRel {
+  alignment-baseline: baseline;
+  -webkit-transform: translateY(-12px);
+          transform: translateY(-12px);
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  margin-left: 5%;
+}
+
+text {
+  font-size: 0.8rem;
+  stroke-width: 0.001px;
+  stroke: white;
+  color: black;
+  text-anchor: middle;
+  font-weight: 400;
+}
+
+.tick {
+  color: grey;
+}
+
+.x_axis {
+  fill: grey;
+  -webkit-transform: translate(5px, 0);
+          transform: translate(5px, 0);
+}
+
+.rect:hover {
+  opacity: 0.8;
+}
+
+/**************** DELTA-ABS ******************/
+.diff_axis {
+  stroke: lightgrey;
+  stroke-width: 6;
+}
+
+/*************** TOOLTIP ********************/
+.tippy-tooltip.custom-theme {
+  background-color: #fafafa;
+  color: black;
+  border-radius: 3px;
+  line-height: 0.5;
+  padding: 0;
+}
+
+.tippy-tooltip.custom-theme .tippy-arrow {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+/*# sourceMappingURL=styles.css.map */

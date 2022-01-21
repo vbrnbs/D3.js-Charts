@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>C03: MULTI-TIER COLUMN CHARTS</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://unpkg.com/popper.js@1"></script>
+<script src="https://unpkg.com/tippy.js@5"></script>
+  <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+</head>
+<body>
+
+<!----------------------------------------- HEADER TEXT ------------------------------------->
+
+    <div id="headerText">
+        <p><span id="compName">Alpha Software GmbH</span><br>
+       <strong>Umsatzerlöse</strong> in kEUR<br>
+        02/2017 .01/2018 IST, VJ, △VJ, △VJ%</p>  
+    </div>
+
+<!----------------------------------------- C03: MULTI-TIER COLUMN CHARTS -------------------->
+
+    <div class="chart-container"></div>
+
+<!----------------------------------------- PATTERNS FOR FORECAST DATA ------------------------>
+
+    <svg class="fiscalPattern" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="lightstripe" patternUnits="userSpaceOnUse" width="5" height="5"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1JyBoZWlnaHQ9JzUnPgogIDxyZWN0IHdpZHRoPSc1JyBoZWlnaHQ9JzUnIGZpbGw9J3doaXRlJy8+CiAgPHBhdGggZD0nTTAgNUw1IDBaTTYgNEw0IDZaTS0xIDFMMSAtMVonIHN0cm9rZT0nIzg4OCcgc3Ryb2tlLXdpZHRoPScxJy8+Cjwvc3ZnPg==" x="0" y="0" width="5" height="5"> </image> </pattern> </defs> </svg>
+
+    <svg class="fiscalPattern" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <pattern id="redstripe" width="4" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="2" height="8" fill="red"></rect>
+            </pattern>
+        </defs>
+    </svg>
+
+    <svg class="fiscalPattern" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <pattern id="greenstripe" width="4" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="2" height="8" fill="green"></rect>
+            </pattern>
+        </defs>
+    </svg>
+    
+<!----------------------------------------- D3.SCRIPT ------------------------>
+    
+    <script src="d3.js"></script>
+
+</body>
+</html>
