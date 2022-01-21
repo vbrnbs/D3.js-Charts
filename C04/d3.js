@@ -1,50 +1,42 @@
 
-const companyName = document.getElementById("compName").innerText;
+// Append Chart to HTML
+const svg = d3.select("#chart-container").append("svg");  
 
-const svg = d3.select("#svg-container").append("svg");  
-const force = d3.forceSimulation();
-
+// Get Data
 d3.csv("data.csv").then(function(data) {
-
-const w = window.innerWidth * 0.95, h = window.innerHeight * 0.95;
-svg.attr("width", w).attr("height", h);
-
-svg.selectAll("*").remove();
-
-  const width = d3.select('svg').attr('width'),
-  height = d3.select('svg').attr('height');
-
-const companyName = document.getElementById("compName").innerText;
-const hPix = height / 5;
-const barAbsPos = width * 0.7;
-const barRelPos = width * 0.9;
-const fontSize = window.innerHeight/150;
-const margin = {top: height/20, right: hPix, bottom: height / 6, left: fontSize* 25};
-
-  var chart = svg.append("g")
-    .attr("class", "chart");
   
-    var x = d3.scaleLinear().domain([0, d3.max(data, d => d.year1)]).range([0, width / 7]);
-    var y = d3.scaleBand().range([margin.top, height - margin.bottom]).domain(data.map(function(d) { return d.title; })).padding(0.4);
+// Clear SVG Canvas
+  svg.selectAll("*").remove();
+// Set Inner Width & Height
+  const width = window.innerWidth * 0.95, height = window.innerHeight * 0.95;
+  svg.attr("width", width).attr("height", height);
 
-const xScale = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.year1)])
-    .rangeRound([0, width/7])
+// Initialize Variables
+  const companyName = document.getElementById("compName").innerText,
+  hPix = height / 5,
+  barAbsPos = width * 0.7,
+  barRelPos = width * 0.9,
+  fontSize = window.innerHeight/150,
+  margin = {top: height/20, right: hPix, bottom: height / 6, left: fontSize* 25};
 
-console.log([0, d3.min(data, d => d.year1)])
+// Scale Data
+  // x
+  const x = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d.year1)])
+      .range([0, width / 7]);
 
-var yScale = 
-d3.scaleBand()
-    .domain(d3.range(data.length))
-    .rangeRound([margin.top, height - margin.bottom])
-    .padding(0.4)
+  const y = d3.scaleBand()
+      .domain(d3.range(data.length))
+      .rangeRound([margin.top, height - margin.bottom])
+      .padding(0.4)
 
-const totalLinePos = yScale(data.length - 1) + y.bandwidth() + 17;
+const totalLinePos = y(data.length - 1) + y.bandwidth() + 17;
 const totalsPos = totalLinePos + y.bandwidth()/2;
 const formatDecimal = d3.format(",.3f");
 const formatPercent = d3.format(".0%");
 
-
+const chart = svg.append("g")
+    .attr("class", "chart");
 // Y-AXIS TEXT
     chart
          .append("g")
@@ -53,7 +45,7 @@ const formatPercent = d3.format(".0%");
          .join("text")
          .text((d) => d.title)
            .attr("x", 15)
-           .attr("y", (d, i) => yScale(i) + y.bandwidth() / 2)
+           .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
            .attr("id", "yAxis")
 
 // YEAR 1 BARS
@@ -64,7 +56,7 @@ const formatPercent = d3.format(".0%");
     .enter().append("rect")
           .attr("x", margin.left)
           .attr("height", y.bandwidth())
-          .attr("y", (d, i) => yScale(i))
+          .attr("y", (d, i) => y(i))
           .attr("width", function(d) { return x(d.year1); })
           .attr("class", "rect")
           .attr("title", d => formatDecimal(d.year1))
@@ -82,7 +74,7 @@ chart
   .join("rect")
           .attr("fill", "white")
           .attr("x", d => x(d.year2) + margin.left)
-          .attr("y", (d, i) => yScale(i) + y.bandwidth() * 0.2)
+          .attr("y", (d, i) => y(i) + y.bandwidth() * 0.2)
           .attr("width", 20)
           .attr("height", y.bandwidth());
 
@@ -94,7 +86,7 @@ chart
       .join("text")
       .text((d) => Math.round(d.year2))
         .attr("x", d => x(d.year2) + margin.left + 3)
-        .attr("y", (d, i) => yScale(i) + y.bandwidth() / 2 + 3)
+        .attr("y", (d, i) => y(i) + y.bandwidth() / 2 + 3)
         .style("alignment-baseline", "central");
 
 
@@ -107,7 +99,7 @@ chart
         .attr("class", "rect")
           .attr("x", margin.left)
           .attr("height", y.bandwidth())
-          .attr("y", (d, i) => yScale(i))
+          .attr("y", (d, i) => y(i))
           .attr("width", d => x(d.year2))
           .attr("fill", "black")
           .attr("transform", `translate(0, +3)`)
@@ -177,9 +169,9 @@ for (let i = 0; i < data.length; i++) {
     .join("rect")
       .attr("class", "rect")
       .attr("fill", (d, i) => (d.year2 - d.year1) < 0 ? "#E73835" : "#85AD39")
-      .attr("x", d => barAbsPos + xScale(Math.min(d.year2 - d.year1, 0)))
-      .attr("y", (d, i) => yScale(i))
-      .attr("width", d => Math.abs(xScale(d.year2 - d.year1) - xScale(0)))
+      .attr("x", d => barAbsPos + x(Math.min(d.year2 - d.year1, 0)))
+      .attr("y", (d, i) => y(i))
+      .attr("width", d => Math.abs(x(d.year2 - d.year1) - x(0)))
       .attr("height", y.bandwidth())
       .attr("title", d => formatDecimal(d.year2 - d.year1))
       .attr("date", d => d.title)
@@ -195,12 +187,12 @@ chart
   .text((d) => (Math.round(d) < 0 ? Math.round(d) : `+${Math.round(d)}` ))//(d) => Math.round(d))
     .attr("class", d => d < 0 ? "negative" : "positive")
     .attr("x", function (d) {
-       if (xScale(d) > 0 ){
-            return `${xScale((Math.round(d)) - xScale(0)) + barAbsPos + 3}` 
+       if (x(d) > 0 ){
+            return `${x((Math.round(d)) - x(0)) + barAbsPos + 3}` 
       }else {   // d < 0
-          return `${(xScale(Math.min(Math.round(d))) - xScale(0)) + barAbsPos - 3}`
+          return `${(x(Math.min(Math.round(d))) - x(0)) + barAbsPos - 3}`
       }})
-    .attr("y", (d, i) => yScale(i) + y.bandwidth()/2);
+    .attr("y", (d, i) => y(i) + y.bandwidth()/2);
 
 //////////////// DELTA-RELATIVE//////////////////////////////////////
 /// DELTA RELATIVE BOX
@@ -210,8 +202,8 @@ chart
   .selectAll("rect")
   .data(data)
   .join("rect")
-              .attr("x", d => (xScale(Math.round((d.year2 / d.year1 - 1) * 100))) < 50 ? `${xScale(Math.round((d.year2 / d.year1 - 1) * 100)) - xScale(0) + barRelPos - 5}` : `${barRelPos + 45}`)
-              .attr("y", (d, i) => yScale(i) + y.bandwidth() /2 - 6)
+              .attr("x", d => (x(Math.round((d.year2 / d.year1 - 1) * 100))) < 50 ? `${x(Math.round((d.year2 / d.year1 - 1) * 100)) - x(0) + barRelPos - 5}` : `${barRelPos + 45}`)
+              .attr("y", (d, i) => y(i) + y.bandwidth() /2 - 6)
               .attr("width", 10)
               .attr("height", 10)
               .attr("fill", "#323233");
@@ -225,9 +217,9 @@ chart
     .join("rect")
       .attr("class", "rect")
       .attr("fill", (d, i) => (d.year2 - d.year1) < 0 ? "#E73835" : "#85AD39")
-      .attr("x", d => barRelPos + xScale(Math.min(Math.round((d.year2 / d.year1 - 1) * 100), 0)))
-      .attr("y", (d, i) => yScale(i) + y.bandwidth() / 2 - 3)
-      .attr("width", d => (xScale(Math.round((d.year2 / d.year1 - 1) * 100))) < 50 ? `${Math.abs(xScale(Math.round((d.year2 / d.year1 - 1) * 100)) - xScale(0))}` : 50)
+      .attr("x", d => barRelPos + x(Math.min(Math.round((d.year2 / d.year1 - 1) * 100), 0)))
+      .attr("y", (d, i) => y(i) + y.bandwidth() / 2 - 3)
+      .attr("width", d => (x(Math.round((d.year2 / d.year1 - 1) * 100))) < 50 ? `${Math.abs(x(Math.round((d.year2 / d.year1 - 1) * 100)) - x(0))}` : 50)
       .attr("height", 5)
       .attr("title", d => formatPercent(d.year2 / d.year1 - 1))
       .attr("date", d => d.title);
@@ -242,15 +234,15 @@ chart
   .text((d) => (Math.round(d) < 0 ? Math.round(d) : `+${Math.round(d)}` ))
     .attr("class", d => d < 0 ? "negative" : "positive")
     .attr("x", function(d){
-       if (xScale(d) > 0  &&  xScale(d) < 50){
-            return `${xScale((Math.round(d)) - xScale(0)) + barRelPos + 6 + 3}` 
-      }else if (xScale(d) > 0 && xScale(d) > 50){
+       if (x(d) > 0  &&  x(d) < 50){
+            return `${x((Math.round(d)) - x(0)) + barRelPos + 6 + 3}` 
+      }else if (x(d) > 0 && x(d) > 50){
             return `${barRelPos + 60}`
       }else {   // d < 0
-          return `${(xScale(Math.min(Math.round(d))) - xScale(0)) + barRelPos - 6 - 3}`
+          return `${(x(Math.min(Math.round(d))) - x(0)) + barRelPos - 6 - 3}`
       }
       })
-    .attr("y", (d, i) => yScale(i) + y.bandwidth() / 2)
+    .attr("y", (d, i) => y(i) + y.bandwidth() / 2)
     .style("alignment-baseline", "central");
 
 
@@ -263,9 +255,9 @@ const totalAbs = total - totalEst;
     .append("rect")
       .attr("class", "rect")
       .attr("fill", (d, i) => (totalAbs) < 0 ? "#E73835" : "#85AD39")
-      .attr("x", d => barAbsPos + xScale(Math.min(totalAbs, 0)))
+      .attr("x", d => barAbsPos + x(Math.min(totalAbs, 0)))
       .attr("y", totalsPos)
-      .attr("width", d => Math.abs(xScale(totalAbs) - xScale(0)))
+      .attr("width", d => Math.abs(x(totalAbs) - x(0)))
       .attr("height", y.bandwidth())
       .attr("title", d => totalAbs)
       .attr("date", "Total Difference");
@@ -275,7 +267,7 @@ const totalAbs = total - totalEst;
       .append("text")
       .text(totalAbs)
       .attr("class", d => totalAbs > 0 ? "total positive" : "total negative")
-      .attr("x", d => totalAbs < 0 ? `${barAbsPos + xScale(totalAbs) - 3 }` : `${barAbsPos + xScale(totalAbs) + 3}` )
+      .attr("x", d => totalAbs < 0 ? `${barAbsPos + x(totalAbs) - 3 }` : `${barAbsPos + x(totalAbs) + 3}` )
       .attr("y", totalsPos + y.bandwidth() / 2);
 
 
@@ -285,7 +277,7 @@ const totalRel = parseInt((total / totalEst - 1) * 100)
 svg
   .append("rect")
               .attr("fill", "#323233")
-              .attr("x", barRelPos + xScale(totalRel - 2))
+              .attr("x", barRelPos + x(totalRel - 2))
               .attr("y", totalsPos + y.bandwidth() / 2 - 3)
               .attr("width", 10)
               .attr("height", 10);
@@ -294,9 +286,9 @@ svg
     .append("rect")
       .attr("class", "rect")
       .attr("fill", (d, i) => (totalRel) < 0 ? "#E73835" : "#85AD39")
-      .attr("x", d => barRelPos + xScale(Math.min(totalRel, 0)))
+      .attr("x", d => barRelPos + x(Math.min(totalRel, 0)))
       .attr("y", totalsPos + y.bandwidth() / 2)
-      .attr("width", d => Math.abs(xScale(totalRel) - xScale(0)))
+      .attr("width", d => Math.abs(x(totalRel) - x(0)))
       .attr("height", 5)
       .attr("title", d => formatPercent(totalRel/100))
       .attr("date", "Total Difference in %");
@@ -306,7 +298,7 @@ svg
       .append("text")
       .text(totalRel)
       .attr("class", d => totalRel < 0 ? "total negative" : "total positive")
-      .attr("x", d => totalRel < 0 ? `${barRelPos + xScale(totalRel) - 6 - 3 }` : `${barRelPos + xScale(totalRel) + 6 + 3}` )
+      .attr("x", d => totalRel < 0 ? `${barRelPos + x(totalRel) - 6 - 3 }` : `${barRelPos + x(totalRel) + 6 + 3}` )
       .attr("y", totalsPos + y.bandwidth() / 2 + 2);
 
 
@@ -352,9 +344,9 @@ svg
     chart
         .append("line")
           .attr("x1", 10)
-          .attr("y1", yScale(i) - y.bandwidth()/3)
+          .attr("y1", y(i) - y.bandwidth()/3)
           .attr("x2", width - 10)
-          .attr("y2", yScale(i) - y.bandwidth()/3)
+          .attr("y2", y(i) - y.bandwidth()/3)
           .attr("stroke-width", "0.1px")
           .attr("stroke", "black");
     }
@@ -387,8 +379,8 @@ svg
       .text("AC")
       .attr("font-weight", 700)
       .style("alignment-baseline", "hanging")
-      .attr("x", xScale(data[18].year1) / 2 + margin.left)
-      .attr("y", yScale(data.length - 1) + y.bandwidth() + 5);
+      .attr("x", x(data[18].year1) / 2 + margin.left)
+      .attr("y", y(data.length - 1) + y.bandwidth() + 5);
 
 /////////////////////// TOOLTIP /////////////////////////////////
 $(document).ready(function(){
