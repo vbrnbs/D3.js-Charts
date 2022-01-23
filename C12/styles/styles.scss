@@ -1,0 +1,117 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	
+ }
+
+text {
+	font-size: 1rem;
+	color: black;
+	font-weight: 400;
+	alignment-baseline: baseline;
+}
+
+svg {
+	order: 2;
+	margin: 0;
+	padding: 0;
+	margin-left: 2.5%;
+}
+
+
+.bar.total > .year2 {
+  fill: rgb(89, 89, 89);
+}
+
+.bar.positive > .year2 {
+  fill: rgb(89, 89, 89);
+}
+.bar.negative > .year2 {
+  fill: black;
+}
+
+.connector {
+  stroke: black;
+  stroke-width:  0.5px;
+}
+
+.barText {
+	alignment-baseline: middle;
+	transform: translateX(5px);
+}
+
+.negative > .barText {
+	text-anchor: end;
+	alignment-baseline: middle;
+	transform: translateX(-5px);
+}
+
+rect.year1{
+	fill: white;
+	stroke: black;
+}
+
+#headerText {
+	font-size: 15px;
+	margin-left: 10px;
+	//display:  none;
+}
+
+.negative {
+	font-size: 1.5vh;
+	text-anchor: end;
+	alignment-baseline: central;
+}
+
+.positive {
+	font-size: 1.5vh;
+	text-anchor: start;
+	alignment-baseline: central;
+}
+
+.divLine {
+	stroke: black;
+	stroke-width: 0.5px;
+}
+.y-axis {
+	stroke-width: 0.5px;
+	stroke: black;
+}
+
+.y-axis:nth-child(1n+3) {
+	stroke-width: 4px;
+	stroke: rgb(125 125 125 / 70%);
+	
+}
+
+#title0, #title1, #title2, #title3, #title6, #title7, #title8, #title9, #title10 {
+	
+	transform: translateX(15px);
+}
+
+#title4, #title11, #title12, #title15, #title17, #title19 {
+	font-weight: 700;
+}
+
+.connectors,
+.SUMconnectors {
+	stroke-width:  0.3px;
+	stroke: black;
+}
+
+rect:hover {
+	opacity: 0.5;
+}
+
+/*************** TOOLTIP ********************/
+
+.tippy-tooltip.custom-theme {
+  background-color: rgb(250,250,250);
+  color: black;
+  border-radius: 3px;
+  line-height: 0.5;
+  padding: 0;
+}
+

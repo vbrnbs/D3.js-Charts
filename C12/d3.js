@@ -289,7 +289,7 @@ labels
 
 }; // drawWaterfall
 /// Tooltip
-$(document).ready(function(){
+window.onload = (tooltip) => {
   tippy('.tooltip', {   
           arrow: true,
           //placement: 'top',
@@ -319,7 +319,7 @@ $(document).ready(function(){
                     <p><span style="font-size: 18px;color: ${fill};"> ● </span>${companyName}: <strong>${title}</strong></p>`
               },
       });
-});
+};
 // Transform Data 
 const prepData = (data) => {
   // Create Remainder Bars

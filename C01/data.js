@@ -1,4 +1,4 @@
-var Data = [
+var data = [
 { year: "2014",
 'Software': 2.9245, 'Support': 1.655, 'Training': 0.255, 'Consulting': 2.2, 'Other': 0.65,
 
@@ -30,4 +30,3 @@ var Data = [
 'Country': {'USA': 2.244, 'Germany': 3.756, 'Japan': 1.444, 'Rest Of Americas': 1.019, 'Rest Of Europe': 1.895, 'Rest Of Asia': 1.055}
 }];
 
-const fiscal = 3;

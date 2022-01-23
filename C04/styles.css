@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-family: Helvetica, sans-serif;
+}
+
+.PL-bar {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  stroke: black;
+}
+
+svg {
+  margin-left: 2.5%;
+}
+
+text {
+  font-size: 1.5vh;
+  stroke-width: 0.001px;
+  stroke: white;
+  color: black;
+  font-weight: 400;
+}
+
+rect:hover {
+  opacity: 0.8;
+}
+
+#headerText {
+  font-size: 15px;
+  padding-left: 10px;
+}
+
+line {
+  stroke: black;
+}
+
+.AC-text rect {
+  fill: white;
+}
+
+.delta-realtive-box {
+  width: 10px;
+  height: 10px;
+  fill: #323233;
+}
+
+.negative {
+  text-anchor: end;
+  alignment-baseline: central;
+}
+
+.positive {
+  text-anchor: start;
+  alignment-baseline: central;
+}
+
+.yAbsRel {
+  stroke-width: 0.5px;
+  stroke: black;
+}
+
+#yAxis {
+  alignment-baseline: middle;
+}
+
+.total {
+  font-weight: 600;
+}
+
+/*************** TOOLTIP ********************/
+.tippy-tooltip.custom-theme {
+  background-color: #fafafa;
+  color: black;
+  border-radius: 3px;
+  line-height: 0.5;
+  padding: 0;
+}
+/*# sourceMappingURL=styles.css.map */
