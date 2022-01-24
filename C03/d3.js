@@ -56,7 +56,7 @@ const chart = d3.select('.chart-container').append('svg');
 		// y-Scale Data for Variances
 		const yScale = d3.scaleLinear()
 		.domain([0, 550])
-			.range([0, (height - margin.bottom - height / 2)]);
+		.range([0, (height - margin.bottom - height / 2)]);
 	
 /// GLOBAL VARIABLES
 		//Company Data
