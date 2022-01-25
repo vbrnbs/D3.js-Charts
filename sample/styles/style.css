@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+}
+
+rect {
+  fill: steelblue;
+  opacity: 0.5;
+}
+
+line {
+  stroke: gray;
+}
+
+.delta-absolute-chart {
+  fill: tomato;
+}
+
+.chart-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tippy-tooltip.light-theme {
+  background: white;
+  border: 1px solid grey;
+  color: #333;
+}
+
+.tippy-tooltip.light-theme .tippy-arrow {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.tippy-tooltip.light-theme .tippy-arrow::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  -webkit-transform: translateZ(-1px);
+          transform: translateZ(-1px);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid grey;
+}
+
+.tippy-popper[x-placement^=right] .tippy-tooltip.light-theme .tippy-arrow {
+  border-right-color: #fff;
+}
+
+.tippy-popper[x-placement^=right] .tippy-tooltip.light-theme .tippy-arrow::after {
+  right: -7px;
+}
+
+.tippy-tooltip.light-theme {
+  color: #515151;
+  /* box-shadow:0 0 20px 4px rgba(154,161,177,.15),0 4px 80px -8px rgba(36,40,47,.25),0 4px 4px -2px rgba(91,94,105,.15); */
+  background-color: #fefefe;
+  border: 1px solid #bfbfbf;
+}
+
+.tippy-tooltip.light-theme .tippy-backdrop {
+  background-color: #fefefe;
+}
+
+.tippy-tooltip.light-theme .tippy-roundarrow {
+  fill: #fefefe;
+}
+
+.tippy-tooltip.light-theme[data-animatefill] {
+  background-color: transparent;
+}
+/*# sourceMappingURL=style.css.map */
